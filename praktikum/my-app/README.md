@@ -44,3 +44,8 @@ Tambahkan extensions chrome
 
 Jalankan browser chrome
 ![Tampilan Hasil](docs/langkah6-3.png) 
+
+## Langkah 7 - Modifikasi Background
+
+Hasil setelah adanya modifikasi
+![Tampilan Hasil](docs/langkah%207.png)
