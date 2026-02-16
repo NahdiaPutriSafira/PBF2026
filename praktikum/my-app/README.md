@@ -49,3 +49,8 @@ Jalankan browser chrome
 
 Hasil setelah adanya modifikasi
 ![Tampilan Hasil](docs/langkah%207.png)
+
+## Tugas 1 - Buat halaman baru about.js di folder pages, Tampilkan Nama Mahasiswa, NIM, dan Program Studi
+![Tampilan Hasil](docs/Tugas1.png)
+
+
