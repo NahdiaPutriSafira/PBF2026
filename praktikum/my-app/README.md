@@ -33,3 +33,14 @@ Menjalankan server menggunakan perintah npm run dev, kemudian membuka http://loc
 ## Langkah 5 - Modifikasi Halaman Utama
 
 ![Tampilan Hasil](docs/langkah%205.png)
+
+## Langkah 6 - Modifikasi API
+Jalankan browser dengan Alamat http://localhost:3000/api/hello
+
+![Tampilan Hasil](docs/langkah6.png)
+
+Tambahkan extensions chrome
+![Tampilan Hasil](docs/langkah6-2.png)
+
+Jalankan browser chrome
+![Tampilan Hasil](docs/langkah6-3.png) 
