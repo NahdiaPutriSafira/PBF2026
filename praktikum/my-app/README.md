@@ -29,3 +29,7 @@ Menjalankan server menggunakan perintah npm run dev, kemudian membuka http://loc
 ![Tampilan Hasil](docs/langkah3.png)
 ![Tampilan Hasil](docs/langkah3-2.png)
 ![Tampilan Hasil](docs/langkah3-3.png)
+
+## Langkah 5 - Modifikasi Halaman Utama
+
+![Tampilan Hasil](docs/langkah%205.png)
