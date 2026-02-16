@@ -53,4 +53,7 @@ Hasil setelah adanya modifikasi
 ## Tugas 1 - Buat halaman baru about.js di folder pages, Tampilkan Nama Mahasiswa, NIM, dan Program Studi
 ![Tampilan Hasil](docs/Tugas1.png)
 
-
+## Tugas 2 - Tambahkan minimal 1 link navigasi dari halaman utama ke halaman about
+![Tampilan Hasil](docs/Tugas2.png)
+setelah di klik linknya "ke halaman about"
+![Tampilan Hasil](docs/Tugas2-2.png)
