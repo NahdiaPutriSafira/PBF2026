@@ -4,17 +4,23 @@ type AppShellProps = {
   children: React.ReactNode;
 };
 
-const AppShell = (props: AppShellProps) => {
-  const { children } = props;
-
+const AppShell = ({ children }: AppShellProps) => {
   return (
-    <main>
+    <>
       <Navbar />
-      {children}
-      <div>
-        footer
-      </div>
-    </main>
+
+      <main style={{ minHeight: "80vh", padding: "20px" }}>
+        {children}
+      </main>
+
+      <footer style={{ 
+        padding: "15px", 
+        textAlign: "center", 
+        backgroundColor: "#f1f1f1" 
+      }}>
+        © 2026 Nahdia Putri Safira | TI3D
+      </footer>
+    </>
   );
 };
 
