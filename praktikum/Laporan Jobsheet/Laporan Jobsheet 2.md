@@ -13,34 +13,52 @@ Program Studi: D4 Teknik Informatika
 ---
 
 ## Langkah 1 – Pengecekan Lingkungan
+
 Melakukan pengecekan versi Node.js dan npm untuk memastikan environment sudah siap digunakan dalam pembuatan project Next.js.
+
 1. Buka terminal/command prompt
+
 2. Jalankan Perintah berikut : 
 
     node -v dan npm -v
-        ![Tampilan Hasil](imagelaporan/image1.png)
+
+    ![Tampilan Hasil](imagelaporan/image1.png)
     
     git -v
-        ![Tampilan Hasil](imagelaporan/image1-2.png)
+
+    ![Tampilan Hasil](imagelaporan/image1-2.png)
  
 ---
 
 ## Langkah 2 - Membuat Project Next.js
+
 Membuat project menggunakan perintah npx create-next-app@13.4.7 sesuai instruksi jobsheet.
+
 1. Buat direktori baru dan masuk ke direktori kerja
+
     ![Tampilan Hasil](imagelaporan/image2.png)
+
 2. Jalankan perintah:
+
     ![Tampilan Hasil](imagelaporan/image2-2.png)
+
 3. Masuk ke folder projectnya
+
     ![Tampilan Hasil](imagelaporan/image2-3.png)
+
 
 ---
 
 ## Langkah 3 -  Menjalankan Server Development
+
 Menjalankan server menggunakan perintah npm run dev, kemudian membuka http://localhost:3000 di browser.
+
 1. Masuk ke folder project dan jalankan aplikasinya
+
     ![Tampilan Hasil](imagelaporan/image3.png)
+
 2. Buka Browser dan akses http://localhost:3000 
+
     ![Tampilan Hasil](imagelaporan/image3-2.png)
 
 ---
@@ -59,9 +77,13 @@ File .gitignore berfungsi untuk menentukan file atau folder yang tidak perlu di-
 ## Langkah 5 - Modifikasi Halaman Utama
 
 1. Buka file pages/index.js, ubah isi halamannya misalnya
+
     ![Tampilan Hasil](imagelaporan/image5.png)
+
 2. Simpan dan lihat perubahannya di browser
+
     ![Tampilan Hasil](imagelaporan/image5-2.png)
+
 
 ---
 
@@ -70,46 +92,68 @@ Pada langkah ini, dilakukan modifikasi pada API bawaan yang terdapat dalam proje
 File yang dimodifikasi adalah hello.ts yang berada di dalam folder pages/api/. File tersebut berisi fungsi handler yang akan merespons setiap request yang masuk ke endpoint /api/hello.
 
 1. Buka Folder api, modifikasi hello.ts
+
     ![Tampilan Hasil](imagelaporan/image6.png)
+
 2. Jalankan browser dengan alamat http://localhost:3000/api/hello
+
     ![Tampilan Hasil](imagelaporan/image6-2.png)
+
 3. Tambahkan extension chrome
-Pada tahap ini juga dapat ditambahkan extension pada browser (seperti JSON viewer) untuk mempermudah pembacaan response API.
+
+    Pada tahap ini juga dapat ditambahkan extension pada browser (seperti JSON viewer) untuk mempermudah pembacaan response API.
+
     ![Tampilan Hasil](imagelaporan/image6-3.png)
+
 4. Jalankan kembali browser chrome
+
     ![Tampilan Hasil](imagelaporan/image6-4.png)
 
 ---
 
 ## Langkah 7 - Modifikasi Background
+
 Pada langkah ini dilakukan modifikasi terhadap file _app.tsx yang berfungsi sebagai komponen utama (root component) dalam aplikasi Next.js. File ini digunakan untuk membungkus seluruh halaman sehingga setiap perubahan yang dilakukan di dalamnya akan berlaku secara global.
 
 1. Buka file _app.tsx dan Modifikasi
+
     ![Tampilan Hasil](imagelaporan/image7.png)
-Perubahan dilakukan dengan menambahkan pengaturan styling untuk mengubah tampilan background aplikasi.
+
+    Perubahan dilakukan dengan menambahkan pengaturan styling untuk mengubah tampilan background aplikasi.
+
 2.	Jalankan localhost
+
     ![Tampilan Hasil](imagelaporan/image7-2.png)
-Hasil yang diperoleh menunjukkan bahwa background pada halaman utama dan halaman lainnya berhasil berubah sesuai dengan konfigurasi yang telah ditambahkan.
+
+    Hasil yang diperoleh menunjukkan bahwa background pada halaman utama dan halaman lainnya berhasil berubah sesuai dengan konfigurasi yang telah ditambahkan.
 
 ---
 
 ## Tugas 1 - Buat halaman baru about.js di folder pages, Tampilkan Nama Mahasiswa, NIM, dan Program Studi
+
 1. ![Tampilan Hasil](imagelaporan/imageTugas1.png)
+
 2. Hasilnya setelah dijalankan
-![Tampilan Hasil](imagelaporan/imageTugas1-2.png)
+
+    ![Tampilan Hasil](imagelaporan/imageTugas1-2.png)
 
 ## Tugas 2 - Tambahkan minimal 1 link navigasi dari halaman utama ke halaman about
 
 Pada tugas ini ditambahkan minimal satu link navigasi dari halaman utama (index.js) menuju halaman About (about.js). Penambahan navigasi dilakukan menggunakan komponen Link yang disediakan oleh Next.js untuk berpindah halaman tanpa melakukan reload penuh (client-side navigation).
 
 1. ![Tampilan Hasil](imagelaporan/imageTugas2.png)
-Link ditambahkan dengan properti href="/about" yang mengarah ke route halaman About. Setelah kode disimpan dan aplikasi dijalankan, pada halaman utama muncul tautan "Ke Halaman About" yang dapat diklik.
-Saat tautan tersebut dipilih, pengguna akan diarahkan ke halaman About tanpa melakukan reload penuh pada browser. Hal ini menunjukkan bahwa fitur client-side routing pada Next.js berjalan dengan baik.
+
+    Link ditambahkan dengan properti href="/about" yang mengarah ke route halaman About. Setelah kode disimpan dan aplikasi dijalankan, pada halaman utama muncul tautan "Ke Halaman About" yang dapat diklik.
+    Saat tautan tersebut dipilih, pengguna akan diarahkan ke halaman About tanpa melakukan reload penuh pada browser. Hal ini menunjukkan bahwa fitur client-side routing pada Next.js berjalan dengan baik.
+
 2. Hasilnya
+
     ![Tampilan Hasil](imagelaporan/imageTugas2-2.png)
-Saat aplikasi dijalankan dan diakses melalui http://localhost:3000, halaman utama berhasil ditampilkan dengan judul "Praktikum Next.js Pages Router" serta terdapat tautan navigasi bertuliskan "Ke Halaman About".
-Ketika tautan tersebut diklik, pengguna diarahkan ke halaman About dengan route /about. Halaman About menampilkan informasi berupa nama, NIM, dan program studi sesuai dengan kode yang telah dibuat.
-![Tampilan Hasil](imagelaporan/imageTugas2-3.png)
+
+    Saat aplikasi dijalankan dan diakses melalui http://localhost:3000, halaman utama berhasil ditampilkan dengan judul "Praktikum Next.js Pages Router" serta terdapat tautan navigasi bertuliskan "Ke Halaman About".
+    Ketika tautan tersebut diklik, pengguna diarahkan ke halaman About dengan route /about. Halaman About menampilkan informasi berupa nama, NIM, dan program studi sesuai dengan kode yang telah dibuat.
+
+    ![Tampilan Hasil](imagelaporan/imageTugas2-3.png)
 
 ---
 
