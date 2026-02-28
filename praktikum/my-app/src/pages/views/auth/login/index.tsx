@@ -1,24 +1,32 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
-import Navbar from '@/component/layouts/navbar'
-// import Link from 'next/link'
+import Link from "next/link";
+import { useRouter } from "next/router";
+import styles from "./login.module.css";
 
-const inter = Inter({ subsets: ['latin'] })
+const TampilanLogin = () => {
+    const { push } = useRouter();
 
-export default function Home() {
-  return (
-    <div>
-      
-      <h1>Praktikum Next.js Pages Router</h1> <br />
-      <p>Mahasiswa D4 Pengembangan Web</p>
+    const handleLogin = () => {
+        // logic login disini
+        push('/produk');
+    }
 
-      {/* <br />
+    return (
+        <div className={styles.login}>
+            <h1>Halaman Login</h1>
+            <button onClick={() => handleLogin()}>Login</button> <br />
+            <h1
+                style={{
+                    color: "red",
+                    border: "1px solid red",
+                    borderRadius: "5px",
+                    padding: "5px"
+                }}
+            >
+                belum punya akun?
+            </h1>
+            <Link href={"/auth/register"}>Ke Halaman Register</Link>
+        </div>
+    );
+};
 
-      <Link href="/about">
-      Ke Halaman About
-      </Link> */}
-    </div>
-  )
-}
+export default TampilanLogin;
