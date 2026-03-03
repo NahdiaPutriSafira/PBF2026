@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "@/styles/404.module.scss";
 
 const Custom404 = () => {
@@ -16,6 +17,11 @@ const Custom404 = () => {
       <p className={styles.error_desc}>
         Maaf, halaman yang Anda cari tidak tersedia atau telah dipindahkan.
       </p>
+        <Link href="/">
+            <button className={styles.error__button}>
+            Kembali ke Home
+            </button>
+        </Link>
     </div>
   );
 };
