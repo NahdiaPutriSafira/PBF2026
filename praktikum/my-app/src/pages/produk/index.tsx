@@ -1,95 +1,36 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import TampilanProduk from "../views/produk";
 
-type ProductType = {
-  id: string;
-  name: string;
-  price: number;
-  size: string;
-  category: string;
-};
+const kategori = () => {
+  // const [isLogin, setIsLogin] = useState(false);
+  // const { push } = useRouter();
+  const [products, setProducts] = useState([]);
+  // console.log("products:", products);
+  // useEffect(() => {
+  //   if (!isLogin) {
+  //     push("/auth/login");
+  //   }
+  // }, []);
 
-const Kategori = () => {
-  // Menambahkan tipe data ke useState agar TypeScript lebih akurat
-  const [products, setProduct] = useState<ProductType[]>([]);
-
-  // 1. Ekstrak logika fetch ke dalam fungsi terpisah
-  const fetchData = () => {
+  useEffect(() => {
     fetch("/api/produk")
       .then((response) => response.json())
       .then((responsedata) => {
-        // console.log(responsedata.data);
-        setProduct(responsedata.data);
+        setProducts(responsedata.data);
+        // console.log("Data produk:", responsedata.data);
       })
       .catch((error) => {
-        console.error("Error fetching products:", error);
+        console.error("Error fetching produk:", error);
       });
-  };
-
-  // 2. Panggil fetchData saat komponen pertama kali di-mount
-  useEffect(() => {
-    fetchData();
+      
   }, []);
 
   return (
     <div>
-      <h1>Daftar Produk</h1>
-      
-      {/* 3. Tambahkan tombol Refresh yang memanggil fungsi fetchData */}
-      <button 
-        onClick={fetchData} 
-        style={{ padding: "8px 16px", marginBottom: "20px", cursor: "pointer" }}
-      >
-        Refresh Data
-      </button>
-
-      {products.map((products: ProductType) => (
-        <div key={products.id} style={{ borderBottom: "1px solid #ccc", marginBottom: "10px" }}>
-          <h2>{products.name}</h2>
-          <p>Harga: {products.price}</p>
-          <p>Ukuran: {products.size}</p>
-          <p>Kategori: {products.category}</p>
-        </div>
-      ))}
+      <TampilanProduk products={products} />
     </div>
   );
 };
 
-export default Kategori;
-
-
-
-// const produk = () => {
-//   // const [isLogin, setIsLogin] = useState(false); 
-//   // const { push } = useRouter();
-
-//   // useEffect(() => {
-//   //   if (!isLogin) {
-//   //     push("/auth/login");
-//   //   }
-//   // }, []);
-//   return (
-//     <div style={{ padding: '20px' }}>
-//         Produk User Page
-//     </div>
-//   );
-// };
-
-// export default produk;
-
-// import ProductView from "../views/product";
-// import { useRouter } from "next/router";
-// import { useEffect, useState } from "react";
-
-// export default function ProdukPage() {
-//   const [isLogin, setIsLogin] = useState(true); // Ubah ke true agar bisa melihat halaman
-//   const { push } = useRouter();
-
-//   useEffect(() => {
-//     if (!isLogin) {
-//       push("/auth/login");
-//     }
-//   }, [isLogin, push]);
-
-//   return <ProductView />;
-// }
+export default kategori;
