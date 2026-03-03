@@ -11,7 +11,7 @@ type Data = {
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>,
-) {
-  const data = await retrieveProducts("products");
-  res.status(200).json({ status: true, status_code: 200, data });
+)  {
+    const data = await retrieveProducts("products");    
+    res.status(200).json({status: true, status_code: 200, data: data});
 }
