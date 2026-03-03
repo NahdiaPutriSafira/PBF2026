@@ -2,6 +2,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { retrieveProducts } from "../utlis/db/servicefirebase";
 
+console.log("PROJECT ID:", process.env.FIREBASE_PROJECT_ID);
+
 type Data = {
   status: boolean;
   status_code: number;
