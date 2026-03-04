@@ -4,7 +4,10 @@ const DetailProdukPage = () => {
     // const router = useRouter();
     // console.log(router);
 
-    const { query } = useRouter();
+    const { query, isReady } = useRouter();
+    if (!isReady) {
+    return <p>Loading...</p>;
+  }
 
     return (
         <div>
