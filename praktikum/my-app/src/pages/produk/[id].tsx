@@ -1,20 +1,28 @@
 import { useRouter } from "next/router";
+import TampilanProduk from "../views/produk";
+import useSWR from "swr";
+import fetcher from "../utlis/swr/fetcher";
 
 const DetailProdukPage = () => {
-    // const router = useRouter();
-    // console.log(router);
+  const { query, isReady } = useRouter();
 
-    const { query, isReady } = useRouter();
-    if (!isReady) {
+  const { data, isLoading } = useSWR("/api/produk", fetcher);
+
+  if (!isReady || isLoading) {
     return <p>Loading...</p>;
   }
 
-    return (
-        <div>
-            <h1>Detail Produk</h1>
-            <p>Produk yang dipilih: {query.id}</p>
-        </div>
-    );
+  const id = query.id as string;
+
+  return (
+    <div>
+      <h1>Halaman Produk {id}</h1>
+
+      <TampilanProduk
+        products={data?.data || []}
+      />
+    </div>
+  );
 };
 
 export default DetailProdukPage;
