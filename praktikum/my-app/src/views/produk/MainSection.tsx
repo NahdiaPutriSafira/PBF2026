@@ -1,4 +1,4 @@
-import styles from "./Produk.module.css";
+import styles from "./produk.module.scss";
 
 export default function MainSection() {
   return (

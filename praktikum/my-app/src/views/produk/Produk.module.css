@@ -1,0 +1,45 @@
+.produk {
+  padding: 40px 80px;
+}
+
+.produk__title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.produk__content {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.produk__content__item {
+  width: 200px;
+}
+
+.produk__content__item__image {
+  background: #f3f4f6;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.produk__content__item__image img {
+  width: 100%;
+}
+
+.produk__content__item__name {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.produk__content__item__category {
+  color: gray;
+  font-size: 14px;
+}
+
+.produk__content__item__price {
+  color: red;
+  font-weight: bold;
+  margin-top: 5px;
+}

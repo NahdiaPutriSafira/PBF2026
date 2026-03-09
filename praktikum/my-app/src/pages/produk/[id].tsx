@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
-import TampilanProduk from "../views/produk";
+import TampilanProduk from "../../views/produk";
 import useSWR from "swr";
-import fetcher from "../utlis/swr/fetcher";
+import fetcher from "../../utlis/swr/fetcher";
 
 const DetailProdukPage = () => {
   const { query, isReady } = useRouter();
