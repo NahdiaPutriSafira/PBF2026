@@ -1,5 +1,13 @@
+.title {
+        text-align: center;
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 40px;
+        color: #333;
+}
+
 .produkdetail {
-    margin: 4opx auto;
+    margin: 40px auto;
     padding: 24px;
     display: flex;
     gap: 40px;
@@ -35,7 +43,7 @@
         color: #666;
         margin-bottom: 20px;
     }
-    
+
     &__price{
         font-size: 22px;
         font-weight: bold;
@@ -67,5 +75,6 @@
         &__image {
             margin-bottom: 20px;
         }
+
     }
 }
