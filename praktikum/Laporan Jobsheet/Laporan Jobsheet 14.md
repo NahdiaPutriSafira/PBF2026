@@ -59,13 +59,22 @@ Uji 1 – Belum Login
 
 Pada pengujian ini, pengguna mencoba mengakses halaman profile tanpa melakukan login terlebih dahulu. Hasilnya, pengguna akan diarahkan kembali ke halaman utama sebagai bentuk proteksi.
 
+![Tampilan Hasil](imagelaporan/uji1JS14.png)
+
 Uji 2 – Sudah Login
 
 Pada pengujian ini, pengguna melakukan login terlebih dahulu, kemudian mengakses halaman profile. Hasilnya, pengguna dapat mengakses halaman tersebut tanpa kendala.
 
+![Tampilan Hasil](imagelaporan/loginJS14.png)
+
+![Tampilan Hasil](imagelaporan/uji2JS14.png)
+
 Uji 3 – Logout
 
 Pada pengujian ini, pengguna melakukan logout kemudian mencoba kembali mengakses halaman profile. Hasilnya, akses akan ditolak dan pengguna diarahkan kembali ke halaman utama.
+
+![Tampilan Hasil](imagelaporan/uji3JS14.png)
+
 
 ---
 ## G. Alur Login NextAuth
