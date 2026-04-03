@@ -50,29 +50,29 @@ export async function signUp(
   }));
   // console.log("Query result:", data);
 
-  if (data.length == 0) {
-    // user belum ada -> boleh daftar
-    await addDoc(collection(db, "users"), userData);
-    // console.log("User registered:", data);
-    callback({
-      status: "success",
-      message: "User registered successfully",
-    });
-  } else {
+  if (data.length === 0) {
+    // 1. Hash password dan set role di sini (sebelum disimpan)
     userData.password = await bcrypt.hash(userData.password, 10);
-    userData.role = "user"
+    userData.role = "user";
+
+    // 2. Simpan ke database
     await addDoc(collection(db, "users"), userData)
-    .then(()=> {
-      callback({
-      status: "success",
-      message: "User registered successfully",
-    });
-    })
-    .catch((error) => {
-      callback({
+      .then(() => {
+        callback({
+          status: "success",
+          message: "User registered successfully",
+        });
+      })
+      .catch((error) => {
+        callback({
+          status: "error",
+          message: error.message,
+        });
+      });
+  } else {
+   callback({
       status: "error",
       message: "User already exists",
     });
-    });   
   }
 }
