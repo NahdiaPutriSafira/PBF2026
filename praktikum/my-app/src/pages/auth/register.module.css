@@ -1,4 +1,12 @@
-.container {
+.register {
+  padding: 40px;
+}
+
+.register_title {
+  font-size: 28px;
+  font-weight: bold;
+}
+/* .container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,4 +36,4 @@
 
 .link:hover {
   text-decoration: underline;
-}
+} */
