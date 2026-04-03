@@ -54,6 +54,8 @@ export async function signUp(
     // 1. Hash password dan set role di sini (sebelum disimpan)
     userData.password = await bcrypt.hash(userData.password, 10);
     userData.role = "user";
+    userData.role = "member";
+
 
     // 2. Simpan ke database
     await addDoc(collection(db, "users"), userData)
