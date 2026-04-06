@@ -2,7 +2,7 @@ import {
   getFirestore,
   collection,
   getDocs,
-  Firestore,
+  //Firestore,
   getDoc,
   doc,
   query,
@@ -31,15 +31,14 @@ export async function retrieveDataByID(collectionName: string, id: string) {
   return data;
 }
 
-export async function signIn(
-  email: string) {
+export async function signIn(email: string) {
   const q = query(collection(db, "users"), where("email", "==", email));
   const querySnapshot = await getDocs(q);
   const data = querySnapshot.docs.map((doc) => ({
     id: doc.id,
     ...doc.data(),
   }));
-  if (data) {
+  if (data.length > 0) {
     return data[0];
   }else {
     return null;
@@ -95,12 +94,12 @@ export async function signUp(
   }
 }
 
-export async function signInWithGoogle(userData: any, callback: any) {
+async function handleOAuthLogin(userData: any, defaultRole: string, callback: any) {
   try {
     const q = query(
       collection(db, "users"),
       where("email", "==", userData.email),
-      where("type", "==", "google"),
+      where("type", "==", "userData.type"),
     );
 
     const querySnapshot = await getDocs(q);
@@ -115,16 +114,16 @@ export async function signInWithGoogle(userData: any, callback: any) {
       await updateDoc(doc(db, "users", data[0].id), userData);
       callback({
         status: true,
-        message: "User registered and logged in with Google",
+        message: "User logged in with ${userData.type}",
         data: userData,
       });
     } else {
       // User baru, tambah data
-      userData.role = "member";
+      userData.role = "defaultRole";
       await addDoc(collection(db, "users"), userData);
       callback({
         status: true,
-        message: "User registered and logged in with Google",
+        message: "User registered and logged in with ${userData.type}",
         data: userData,
       });
     }
@@ -132,48 +131,16 @@ export async function signInWithGoogle(userData: any, callback: any) {
     // Tangani error di sini
     callback({
       status: false,
-      message: "Failed to register user with Google",
+      message: "Failed to authenticate user with ${userData.type}",
     });
   }
 }
-export async function signInWithGithub(userData: any, callback: any) {
-  try {
-    const q = query(
-      collection(db, "users"),
-      where("email", "==", userData.email),
-      where("type", "==", "github"),
-    );
+export async function signInWithGoogle(userData: any, callback: any) {
+  // Lempar data ke fungsi reusable dengan default role "member"
+  return handleOAuthLogin(userData, "member", callback);
+}
 
-    const querySnapshot = await getDocs(q);
-    const data: any = querySnapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    }));
-
-    if (data.length > 0) {
-      // User sudah ada, pastikan role tidak berubah, lalu update data
-      userData.role = data[0].role;
-      await updateDoc(doc(db, "users", data[0].id), userData);
-      callback({
-        status: true,
-        message: "User logged in with GitHub",
-        data: userData,
-      });
-    } else {
-      // tambah data ke Firestore dengan role default "editor"
-      userData.role = "editor";
-      await addDoc(collection(db, "users"), userData);
-      callback({
-        status: true,
-        message: "User registered and logged in with GitHub",
-        data: userData,
-      });
-    }
-  } catch (error: any) {
-    // Tangani error di sini
-    callback({
-      status: false,
-      message: "Failed to register or login user with GitHub",
-    });
-  }
+    export async function signInWithGithub(userData: any, callback: any) {
+  // Lempar data ke fungsi reusable dengan default role "editor"
+  return handleOAuthLogin(userData, "editor", callback);
 }
