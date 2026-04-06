@@ -2,6 +2,7 @@ import { getToken } from "next-auth/jwt";
 import { NextFetchEvent, NextMiddleware, NextRequest, NextResponse } from "next/server";
 
 const hanyaAdmin = ["/admin"];
+const hanyaEditor = ["/editor"]
 
 export default function withAuth(
   middleware: NextMiddleware,
