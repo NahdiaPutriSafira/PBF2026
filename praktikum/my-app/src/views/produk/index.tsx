@@ -1,5 +1,6 @@
 import styles from "../../pages/produk/produk.module.scss"; 
 import Link from "next/link";
+import Image from "next/image";
 
 type ProductType = {
   id: string;
@@ -16,6 +17,7 @@ const TampilanProduk = ({ products }: { products: ProductType[] }) => {
 
       <div className={styles.produk__content}>
         {products.length > 0 ? (
+          
           products.map((products: ProductType) => (
             <Link
               href={`/produk/${products.id}`}
@@ -23,7 +25,7 @@ const TampilanProduk = ({ products }: { products: ProductType[] }) => {
               className={styles.produk__content__item}
             >
               <div className={styles.produk__content__item__image}>
-                <img src={products.image} alt={products.name} width={200} />
+                <Image src={products.image} alt={products.name} width={200} />
               </div>
 
               <h4 className={styles.produk__content__item__name}>
