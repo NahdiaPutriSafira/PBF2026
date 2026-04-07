@@ -1,3 +1,4 @@
+import Script from 'next/dist/client/script'; // Import dari jobsheet
 import styles from './navbar.module.css';
 import { signIn, signOut, useSession } from "next-auth/react"
 import Image from "next/image";
@@ -7,9 +8,22 @@ const Navbar = () => {
 
   return (
     <div className={styles.navbar}>
+      
+      {/* --- MODIFIKASI PRAKTIKUM 3 DIMULAI DARI SINI --- */}
+      {/* Komentar kode lama agar tidak dieksekusi: 
       <div className={styles.navbar__brand}>
         MyApp
-      </div>
+      </div> 
+      */}
+
+      {/* Tambahkan elemen kosong dengan id="title" */}
+      <div className={styles.navbar__brand} id="title"></div>
+      
+      {/* Tambahkan Script untuk mengisi innerHTML dari id="title" */}
+      <Script id="title-script" strategy="lazyOnload">
+        {`document.getElementById('title').innerHTML = 'MyApp';`}
+      </Script>
+      {/* --- MODIFIKASI PRAKTIKUM 3 SELESAI --- */}
 
       <div className={styles.navbar__right}>
         {data ? (
