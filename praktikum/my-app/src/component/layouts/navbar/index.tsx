@@ -1,7 +1,7 @@
 import Script from 'next/dist/client/script'; // Import dari jobsheet
 import styles from './navbar.module.css';
 import { signIn, signOut, useSession } from "next-auth/react"
-import Image from "next/image";
+import Image from "next/image"; // Pastikan komponen Image di-import
 
 const Navbar = () => {
   const {data}:any = useSession()
@@ -10,16 +10,7 @@ const Navbar = () => {
     <div className={styles.navbar}>
       
       {/* --- MODIFIKASI PRAKTIKUM 3 DIMULAI DARI SINI --- */}
-      {/* Komentar kode lama agar tidak dieksekusi: 
-      <div className={styles.navbar__brand}>
-        MyApp
-      </div> 
-      */}
-
-      {/* Tambahkan elemen kosong dengan id="title" */}
       <div className={styles.navbar__brand} id="title"></div>
-      
-      {/* Tambahkan Script untuk mengisi innerHTML dari id="title" */}
       <Script id="title-script" strategy="lazyOnload">
         {`document.getElementById('title').innerHTML = 'MyApp';`}
       </Script>
@@ -31,13 +22,22 @@ const Navbar = () => {
             <div className={styles.navbar__user}>
               Welcome, {data.user?.fullname}
               {data.user.image && (
-                <Image
-                  src={data.user.image}
-                  alt={data.user.fullname}
-                  width={40}
-                  height={40}
-                  className={styles.navbar__user__image}
+                
+                /* --- MODIFIKASI PRAKTIKUM 4 (KOTAK MERAH) DIMULAI DARI SINI --- */
+                <>
+                  {/* Komentar tag img lama sesuai jobsheet */}
+                  {/* <img src={data.user.image} alt={data.user.fullname} className={styles.navbar__user__image} /> */}
+                  
+                  <Image
+                    src={data.user.image}
+                    alt={data.user.fullname}
+                    width={50}   // Ubah menjadi 50 sesuai jobsheet
+                    height={50}  // Ubah menjadi 50 sesuai jobsheet
+                    className={styles.navbar__user__image}
                   />
+                </>
+                /* --- MODIFIKASI PRAKTIKUM 4 SELESAI --- */
+                
               )}
             </div>
             <button
