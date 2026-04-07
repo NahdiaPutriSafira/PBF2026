@@ -1,12 +1,15 @@
+import Image from "next/image";
 import Link from "next/link";
 import styles from "@/styles/404.module.scss";
 
 const Custom404 = () => {
   return (
     <div className={styles.error}>
-      <img
-        src="/page-not-found.svg"
+      <Image
+        src="/page-not-found.png"
         alt="404 Not Found"
+        width={400}
+        height={200}
         className={styles.error_image}
       />
 
@@ -17,11 +20,10 @@ const Custom404 = () => {
       <p className={styles.error_desc}>
         Maaf, halaman yang Anda cari tidak tersedia atau telah dipindahkan.
       </p>
-        <Link href="/">
-            <button className={styles.error__button}>
-            Kembali ke Home
-            </button>
-        </Link>
+
+      <Link href="/" className={styles.error_button}>
+        Kembali ke Home
+      </Link>
     </div>
   );
 };
