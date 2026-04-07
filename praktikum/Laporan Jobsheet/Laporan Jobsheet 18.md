@@ -111,6 +111,7 @@ Hasil:
 Pada tahap ini, seluruh penggunaan tag HTML standar <img> telah digantikan dengan komponen next/image. Implementasi ini bertujuan untuk memanfaatkan fitur optimasi otomatis dari Next.js, seperti lazy loading, penyesuaian ukuran gambar otomatis (responsive), serta pencegahan Cumulative Layout Shift (CLS) dengan mendefinisikan atribut width dan height pada gambar.
 
 ![Tampilan Hasil](imagelaporan/imgT1js18.png)
+
 2. Gunakan minimal 1 font dari next/font
 
 Penggunaan next/font dalam project ini telah diimplementasikan sejak praktikum sebelumnya pada file src/components/layouts/Appshell/index.tsx. Font yang digunakan adalah Roboto dari Google Fonts yang dipanggil melalui paket @next/font/google. Hal ini dilakukan untuk mengoptimalkan pemuatan aset tipografi secara self-hosted oleh Next.js, sehingga aplikasi tidak lagi bergantung pada pemuatan eksternal yang dapat memperlambat performa render halaman
