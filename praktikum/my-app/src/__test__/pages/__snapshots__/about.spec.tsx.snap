@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`About Page renders about page correctly 1`] = `
+<DocumentFragment>
+  <div>
+    <h1>
+      Halaman About
+    </h1>
+    <p>
+      Nama: Nahdia Putri Safira
+    </p>
+    <p>
+      NIM: 2341720015
+    </p>
+    <p>
+      Program Studi: D4 Teknik Informatika
+    </p>
+  </div>
+</DocumentFragment>
+`;
