@@ -64,6 +64,14 @@ describe('api handlers and data-fetching props', () => {
     const getRes = createMockRes();
     await registerHandler(getReq, getRes);
     expect(getRes.status).toHaveBeenCalledWith(405);
+
+    signUp.mockImplementation(async (_body, callback) => {
+      callback({ status: 'error', message: 'already exists' });
+    });
+    const failedReq: any = { method: 'POST', body: { email: 'a@a.com' } };
+    const failedRes = createMockRes();
+    await registerHandler(failedReq, failedRes);
+    expect(failedRes.status).toHaveBeenCalledWith(400);
   });
 
   it('handles revalidate API token and query branches', async () => {
@@ -85,6 +93,15 @@ describe('api handlers and data-fetching props', () => {
       revalidated: false,
       message: "Invalid query parameter. Expected 'data=produk'.",
     });
+
+    const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorReq: any = { query: { token: 'secret-token', data: 'produk' } };
+    const errorRes = createMockRes();
+    errorRes.revalidate.mockRejectedValue(new Error('revalidate failed'));
+    await revalidateHandler(errorReq, errorRes);
+    expect(errorRes.status).toHaveBeenCalledWith(500);
+    expect(errorRes.send).toHaveBeenCalledWith({ revalidated: false });
+    consoleSpy.mockRestore();
   });
 
   it('handles produk API list and detail branches', async () => {

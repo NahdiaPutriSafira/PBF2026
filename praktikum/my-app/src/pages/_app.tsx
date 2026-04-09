@@ -1,4 +1,4 @@
-//import style from '@/styles/global.css';
+// import style from '@/styles/global.css';
 import type { AppProps } from 'next/app';
 import AppShell from '@/component/layouts/Appshell';
 import Navbar from '@/component/layouts/navbar'
